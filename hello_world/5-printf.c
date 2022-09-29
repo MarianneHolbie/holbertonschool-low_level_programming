@@ -1,14 +1,12 @@
 #include<stdio.h>
 /**
- * main : entry point
- * Description : using printf
- * Return : Always 0
+ * main-entry point
+ * description: using printf
+ * Return: always 0
  */
 int main(void)
 	{
-	/**
-	 * Description : printf function
-	 */
+		/* Description:printf function */
 
 	printf("with proper grammar, but the outcome is a piece of art,\n");
 

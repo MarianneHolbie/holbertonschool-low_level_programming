@@ -16,6 +16,7 @@ int main(void)
 		letter++;
 	}
 	/* loop to print alphabet uppercase */
+	letter = 'A';
 	while (letter <= 'Z')
 	{
 		putchar(letter);

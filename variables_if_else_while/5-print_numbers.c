@@ -1,8 +1,8 @@
 #include <stdio.h>
 /**
  * main- Entry point
- * description: print all single digit numbers of base 10
- * return: 0
+ * Description: print all single digit numbers of base 10
+ * Return: 0
 */
 int main(void)
 {
@@ -15,5 +15,6 @@ int main(void)
 		digit++;
 	}
 
+	putchar('\n');
 	return (0);
 }

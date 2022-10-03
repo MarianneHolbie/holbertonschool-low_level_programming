@@ -6,13 +6,13 @@
 */
 int main(void)
 {
-	int digit;
+	int ascii;
 
-	/* loop to print all single digit number of base 10 */
-	digit = 0;
-	while (digit < 10)
-	{	printf("%d", digit);
-		digit++;
+	/* loop to print all single digit number of base 10 with ascii code*/
+	ascii = 48;
+	while (ascii <= 57)
+	{	putchar(ascii);
+		ascii++;
 	}
 
 	putchar('\n');

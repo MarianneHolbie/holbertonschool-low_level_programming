@@ -14,7 +14,7 @@ int main(void)
 	for (combinaison = 48; combinaison <= 57; combinaison++)
 	{
 		putchar(combinaison);
-		if (combinaison !=57)
+		if (combinaison != 57)
 		{
 			putchar(44);
 			putchar(32);

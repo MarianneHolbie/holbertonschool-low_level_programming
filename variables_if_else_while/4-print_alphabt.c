@@ -9,9 +9,10 @@ int main(void)
 	char letter;
 	/* loop to print alphabet lowercase sauf q and e */
 	letter = 'a';
-	while (letter <= 'z' && letter != 'q' && letter != 'e')
+	while (letter <= 'z')
 	{
-		putchar(letter);
+		if (letter != 'e' && letter != 'q')
+			putchar(letter);
 		letter++;
 	}
 	putchar('\n');

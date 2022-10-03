@@ -6,22 +6,19 @@
  */
 int main(void)
 {
-	int i, combinaison;
+	int combinaison;
 
-	combinaison = '0';
+	combinaison = 48;
 
-	/* loop to print all possible combinations */
-	for (i = 0; i < 10; i++)
+	/* loop to print all possible combinations ascii single number */
+	for (combinaison = 48; combinaison <= 57; combinaison++)
 	{
-		if (i != 9)
+		putchar(combinaison);
+		if (combinaison !=57)
 		{
-			putchar(combinaison);
-			putchar(',');
-			putchar(' ');
-			combinaison++;
+			putchar(44);
+			putchar(32);
 		}
-		else
-			putchar(combinaison);
 	}
 
 		putchar('\n');

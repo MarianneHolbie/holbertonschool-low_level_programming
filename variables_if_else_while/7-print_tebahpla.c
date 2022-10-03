@@ -10,7 +10,7 @@ int main(void)
 
 	/* reverse loop to print reverse alphabet */
 	ascii = 122;
-		while (ascii == 96)
+		while (ascii != 96)
 		{
 			putchar(ascii);
 			ascii--;

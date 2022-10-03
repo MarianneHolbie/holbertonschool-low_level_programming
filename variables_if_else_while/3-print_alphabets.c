@@ -7,16 +7,21 @@
 int main(void)
 {
 	char letter;
+
 	/* loop to print alphabet lowercase */
-	for (letter = 'a'; letter <= 'z'; letter++)
-	{
-			putchar(letter);
-	}
-	/* loop to print alphabet uppercase */
-	for (letter = 'A'; letter <= 'Z'; letter++)
+	letter = 'a';
+	while (letter <= 'z')
 	{
 		putchar(letter);
+		letter++;
+	}
+	/* loop to print alphabet uppercase */
+	while (letter <= 'Z')
+	{
+		putchar(letter);
+		letter++;
 	}
 	putchar('\n');
+
 	return (0);
 }

@@ -9,6 +9,9 @@ int main(void)
 	char letter;
 	/* loop to print alphabet lowercase */
 	for (letter = 'a'; letter <= 'z'; letter++)
-		printf("%c", letter);
+	{
+		putchar(letter);
+	}
+	putchar(\n);
 	return (0);
 }

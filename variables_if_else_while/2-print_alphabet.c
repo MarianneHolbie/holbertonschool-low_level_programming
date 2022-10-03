@@ -12,6 +12,6 @@ int main(void)
 	{
 		putchar(letter);
 	}
-	putchar(\n);
+	putchar(' ');
 	return (0);
 }

@@ -1,20 +1,22 @@
 #include <stdio.h>
+#include <main.h>
+
 /**
- * main- Entry point
- * Description: prints _putchar
- * Return: 0
+ * main- entry poijt
+ * Description: write _puthar
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
 */
+
 int main(void)
 {
-	putchar(95);
-	putchar(112);
-	putchar(117);
-	putchar(116);
-	putchar(99);
-	putchar(104);
-	putchar(97);
-	putchar(114);
-	putchar('\n');
-
+	putchar('_');
+	putchar('p');
+	putchar('u');
+	putchar('t');
+	putchar('c');
+	putchar('h');
+	putchar('a');
+	putchar('r');
 	return (0);
 }

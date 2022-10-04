@@ -23,6 +23,6 @@ int print_last_digit(int n)
 		u = n % 10;
 		_putchar(u + '0');
 	}
-	return (0);
+	return (u);
 }
 

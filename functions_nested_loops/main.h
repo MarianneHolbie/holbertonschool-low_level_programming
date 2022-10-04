@@ -10,3 +10,5 @@ void print_alphabet_x10(void);
 int _islower(int c);
 /* function that checks for alphabetic character */
 int _isalpha(int c);
+/* function that prints the sign of a number */
+int print_sign(int n);

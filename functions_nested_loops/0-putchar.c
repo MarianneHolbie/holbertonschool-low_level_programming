@@ -1,11 +1,9 @@
-#include <stdio.h>
-#include <main.h>
+#include "main.h"
 
 /**
- * main- entry poijt
+ * main- entry point
  * Description: write _puthar
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * Return: 0
 */
 
 int main(void)

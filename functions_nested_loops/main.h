@@ -16,3 +16,7 @@ int print_sign(int n);
 int _abs(int);
 /* function that prints the last digit of a number */
 int print_last_digit(int);
+/* function to print every minute of a day */
+void jack_bauer(void);
+/* function prints the 9 times table, starting with 0 */
+void times_table(void);

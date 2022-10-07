@@ -20,3 +20,5 @@ void print_line(int n);
 void print_diagonal(int n);
 /* function to print a square */
 void print_square(int size);
+/* function print a triangle */
+void print_triangle(int size);

@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * print_triangle: print a triangle 
+ * print_triangle- print a triangle
  * @size: size of the triangle
  * Return: triangle
  */
 
 void print_triangle(int size)
 {
-	if (size >= 0)
+	if (size > 0)
 	{
 		int line, spc, htag, i, j;
 
@@ -16,7 +16,7 @@ void print_triangle(int size)
 		{
 			spc = size - line;
 			htag = line;
-			
+
 			for (i = 1; i <= spc; i++)
 			{
 				_putchar(' ');
@@ -28,6 +28,8 @@ void print_triangle(int size)
 			_putchar('\n');
 		}
 	}
+	if (size == 0)
+		_putchar('\n');
 }
 
 

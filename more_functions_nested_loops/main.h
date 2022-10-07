@@ -18,4 +18,5 @@ void more_numbers(void);
 void print_line(int n);
 /* function to drams a diagonal line */
 void print_diagonal(int n);
-
+/* function to print a square */
+void print_square(int size);

@@ -16,4 +16,6 @@ void print_most_numbers(void);
 void more_numbers(void);
 /* function to draw a straight line */
 void print_line(int n);
+/* function to drams a diagonal line */
+void print_diagonal(int n);
 

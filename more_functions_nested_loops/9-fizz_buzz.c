@@ -20,26 +20,28 @@ int main(void)
 		mod3 = n % 3;
 		mod5 = n % 5;
 
-		if ((mod3 == 0) && (mod5 != 0))
+		if ((mod3 == 0) && (mod5 == 0))
 		{
-			printf("Fizz ");
+			printf("FizzBuzz");
 		}
 		else
 		{
-			if ((mod3 != 0) && (mod5 == 0))
+			if (mod3 == 0)
 			{
-				printf("Buzz ");
+				printf("Fizz");
 			}
 			else
 			{
-				if ((mod3 == 0) && (mod5 == 0))
+				if (mod5 == 0)
 				{
-					printf("FizzBuzz ");
+					printf("Buzz");
 				}
 				else
-					printf("%d ", n);
+						printf("%d", n);
 			}
 		}
+	if (n != 100)
+		printf(" ");
 	}
 	printf("\n");
 	return (0);

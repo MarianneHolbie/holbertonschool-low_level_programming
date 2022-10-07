@@ -35,9 +35,10 @@ int main(void)
 				{
 					printf("FizzBuzz ");
 				}
+				else
+					printf("%d ",n);
 			}
 		}
-		printf("%d ",n);
 	}
 	return (0);
 }

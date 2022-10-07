@@ -12,13 +12,14 @@
 int main(void)
 {
 	int n;
-	
+
 	for (n = 1; n <= 100; n++)
 	{
 		int mod3, mod5;
+
 		mod3 = n % 3;
 		mod5 = n % 5;
-		
+
 		if ((mod3 == 0) && (mod5 != 0))
 		{
 			printf("Fizz ");
@@ -36,7 +37,7 @@ int main(void)
 					printf("FizzBuzz ");
 				}
 				else
-					printf("%d ",n);
+					printf("%d ", n);
 			}
 		}
 	}

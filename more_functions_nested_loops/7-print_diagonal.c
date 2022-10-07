@@ -9,19 +9,18 @@
 void print_diagonal(int n)
 {
 	int i;
-	
+
 	if (n > 0)
 	{
 		/* spc : number of ' ' */
-			int spc;
-			spc = 0;
+		int spc = 0;
 
-			while ( spc != n )
+		while (spc != n)
+		{
+			for (i = 0; i < spc; i++)
 			{
-				for (i = 0; i < spc; i++)
-				{
-					_putchar(' ');
-				}
+				_putchar(' ');
+			}
 			_putchar(92);
 			_putchar('\n');
 			spc++;

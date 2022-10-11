@@ -19,7 +19,7 @@ void print_rev(char *s)
 		len++;
 
 	/* loop to print string in reverse */
-	for (number = len; number >= 0; number--)
+	for (number = (len - 1); number >= 0; number--)
 	{
 		letter = *(s + number);
 		_putchar(letter);

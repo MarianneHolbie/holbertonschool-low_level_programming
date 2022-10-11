@@ -28,4 +28,6 @@ char *_strcat(char *dest, char *src);
 char *_strncat(char *dest, char *src, int n);
 /* function to copy a string */
 char *_strncpy(char *dest, char *src, int n);
+/* function to compares two strings */
+int _strcmp(char *s1, char *s2);
 

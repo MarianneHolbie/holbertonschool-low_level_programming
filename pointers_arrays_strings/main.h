@@ -26,4 +26,6 @@ char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 /* function to concatenate with n bytes from a string */
 char *_strncat(char *dest, char *src, int n);
+/* function to copy a string */
+char *_strncpy(char *dest, char *src, int n);
 

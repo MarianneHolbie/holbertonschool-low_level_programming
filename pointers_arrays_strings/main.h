@@ -22,4 +22,6 @@ void puts_half(char *str);
 void print_array(int *a, int n);
 /* function that copies the string pointed to the buffer */
 char *_strcpy(char *dest, char *src);
+/* function to concatenate two strinfs */
+char *_strcat(char *dest, char *src);
 

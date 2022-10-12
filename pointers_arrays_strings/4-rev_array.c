@@ -6,15 +6,17 @@
  * @a: an array of integers
  * @n: number of element of the array
  *
- * Return: 0
+ * Return: nothing
  */
 
 void reverse_array(int *a, int n)
 {
-	int value, i, j = 0;
+	int value, i, j;
 
+	/* last character of the string */
 	j = n - 1;
 
+	/* swap character from 0 to half length string */
 	for (i = 0; i < (j / 2); i++)
 	{
 		value = *(a + i);

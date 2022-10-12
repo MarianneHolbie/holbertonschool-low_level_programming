@@ -14,6 +14,10 @@ char *cap_string(char *s)
 	char sep[] = {' ', '\t', '\n', ',', ';', '.', '!',
 		'?', '"', '(', ')', '{', '}'};
 
+	/* the first character */
+	if ((s[0] >= 'a') && (s[0] <= 122))
+		s[0] = s[0] - 32;
+
 	/* loop to pass all character in array s */
 	for (i = 0; *(s + i) != '\0'; i++)
 	{

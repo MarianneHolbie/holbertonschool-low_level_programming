@@ -38,4 +38,5 @@ void print_array(int *a, int n);
 char *string_toupper(char *s);
 /* function that capitalizes all words of a string */
 char *cap_string(char *s);
-
+/* function that encodes a string into 1337 */
+char *leet(char *s);

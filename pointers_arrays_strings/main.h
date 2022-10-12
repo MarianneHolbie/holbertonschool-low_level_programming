@@ -34,4 +34,6 @@ int _strcmp(char *s1, char *s2);
 void reverse_array(int *a, int n);
 
 void print_array(int *a, int n);
+/* changes all lowercase letters of a string to uppercase */
+char *string_toupper(char *s);
 

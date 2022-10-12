@@ -17,7 +17,7 @@ void reverse_array(int *a, int n)
 	j = n - 1;
 
 	/* swap character from 0 to half length string */
-	for (i = 0; i < (j / 2); i++)
+	for (i = 0; i <= (j / 2); i++)
 	{
 		value = *(a + i);
 		*(a + i) = *(a + j);

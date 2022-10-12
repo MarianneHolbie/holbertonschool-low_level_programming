@@ -11,17 +11,14 @@
 
 void reverse_array(int *a, int n)
 {
-	int value, i, j;
-
-	/* last character of the string */
-	j = n - 1;
+	int value, i;
 
 	/* swap character from 0 to half length string */
-	for (i = 0; i <= (j / 2); i++)
+	for (i = 0; i < (n - 1); i++)
 	{
 		value = *(a + i);
-		*(a + i) = *(a + j);
-		*(a + j) = value;
-		j--;
+		*(a + i) = *(a + (n - 1));
+		*(a + (n - 1)) = value;
+		n--;
 	}
 }

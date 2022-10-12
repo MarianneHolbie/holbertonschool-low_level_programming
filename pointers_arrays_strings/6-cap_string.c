@@ -11,7 +11,8 @@ char *cap_string(char *s)
 {
 	int i, j, k;
 	/* table of separator */
-	char sep[] = {' ', '\t', '\n', ',', ';', '.', '!', '?', '"', '(', ')', '{', '}'};
+	char sep[] = {' ', '\t', '\n', ',', ';', '.', '!',
+		'?', '"', '(', ')', '{', '}'};
 
 	/* loop to pass all character in array s */
 	for (i = 0; *(s + i) != '\0'; i++)
@@ -24,7 +25,7 @@ char *cap_string(char *s)
 			{
 				k = i + 1;
 				/* condition : if the next character is alpha lowercase and != '\0' */
-				if ((*(s + k) >= 'a' ) && (*(s + k) <= 'z') && (*(s + k) != '\0'))
+				if ((*(s + k) >= 'a') && (*(s + k) <= 'z') && (*(s + k) != '\0'))
 					*(s + k) = *(s + k) - 32;
 			}
 		}

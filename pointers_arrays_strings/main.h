@@ -44,3 +44,6 @@ char *leet(char *s);
 char *_memset(char *s, char b, unsigned int n);
 /* function that copies n byte of memory area in other memory area */
 char *_memcpy(char *dest, char *src, unsigned int n);
+/* function that locates a character in a string */
+char *_strchr(char *s, char c);
+

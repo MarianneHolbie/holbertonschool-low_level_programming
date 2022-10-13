@@ -40,3 +40,5 @@ char *string_toupper(char *s);
 char *cap_string(char *s);
 /* function that encodes a string into 1337 */
 char *leet(char *s);
+/* function that fills memory with a constant byte */
+char *_memset(char *s, char b, unsigned int n);

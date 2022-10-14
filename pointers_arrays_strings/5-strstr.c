@@ -19,7 +19,7 @@ char *_strstr(char *haystack, char *needle)
 	while (*(haystack + i))
 	{
 		i = 0;
-		
+
 		/* condition : compare the two string */
 		if ((*(haystack + i)) == (*(needle + i)))
 		{

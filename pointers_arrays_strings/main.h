@@ -54,4 +54,6 @@ char *_strpbrk(char *s, char *accept);
 char *_strstr(char *haystack, char *needle);
 /* function to print a chessboard */
 void print_chessboard(char (*a)[8]);
+/* function print the sum of the two diagonals of a square */
+void print_diagsums(int *a, int size);
 

@@ -22,8 +22,8 @@ void print_diagsums(int *a, int size)
 	}
 	printf("%d, ", sum);
 
-	/* loop for the sum to the seciond diagonal */
-	for (position2 = (size * size) - size;  position2 >= 0; position2++)
+	/* loop for the sum to the second diagonal */
+	for (position2 = (size * size) - size;  position2 > 0; position2++)
 	{
 		sum2 = sum2 + *(a + position2);
 		position2 = position2 - size;

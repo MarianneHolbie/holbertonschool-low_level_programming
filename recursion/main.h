@@ -12,4 +12,9 @@ int _strlen_recursion(char *s);
 int factorial(int n);
 /* function that returns the value of x raised to the power of y */
 int _pow_recursion(int x, int y);
-
+/* function that returns natural square root of a number */
+int _sqrt_recursion(int n);
+/* function that returns 1 if the input integer is a prime number, 0 if not */
+int is_prime_number(int n);
+/* function that check divisor of a number */
+int check(int i, int n);

@@ -2,11 +2,11 @@
 #include <stdio.h>
 
 /**
- * _main- function that prints the nomber of arguments passed into it
+ * main- function that prints the nomber of arguments passed into it
  * @argc: argument count
  * @argv: argument vector
  *
- * return: 0
+ * Return: 0
  */
 
 int main(int argc, char *argv[]__attribute__ ((unused)))

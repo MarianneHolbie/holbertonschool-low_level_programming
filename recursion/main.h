@@ -18,3 +18,5 @@ int _sqrt_recursion(int n);
 int is_prime_number(int n);
 /* function that check divisor of a number */
 int check(int i, int n);
+/* function to frame sqare root of a nomber */
+int _framing (int root, int n);

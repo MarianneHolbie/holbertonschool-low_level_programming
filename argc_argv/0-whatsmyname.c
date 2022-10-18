@@ -5,6 +5,8 @@
  * main- function that return program name
  * @argc: argument count
  * @argv: array, argument vector
+ *
+ * Return:0
  */
 
 int main(int argc, char *argv[])

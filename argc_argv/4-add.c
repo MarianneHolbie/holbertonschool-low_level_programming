@@ -15,12 +15,8 @@ int main(int argc, char *argv[])
 {
 	int result = 0, x, y, i;
 
-	/* sum if minimum two element */
-	if (argc < 3)
-		printf("0\n");
-
 	/* loop to test if is number et not character */
-	for ( x = 1; x < argc; x++)
+	for (x = 1; x < argc; x++)
 	{
 		for (y = 0; argv[x][y] != '\0'; y++)
 		{
@@ -31,7 +27,7 @@ int main(int argc, char *argv[])
 			else
 			{
 				printf("Error\n");
-				return(1);
+				return (1);
 			}
 		}
 	}
@@ -44,4 +40,3 @@ int main(int argc, char *argv[])
 	printf("%d\n", result);
 	return (0);
 }
-	

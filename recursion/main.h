@@ -20,3 +20,5 @@ int is_prime_number(int n);
 int check(int i, int n);
 /* function to frame sqare root of a nomber */
 int _framing (int root, int n);
+/* function to test if string is a palindrome */
+int is_palindrome(char *s);

@@ -10,31 +10,49 @@
 
 int is_palindrome(char *s)
 {
-	int i, j, len = 0;
-	char a, b;
+	int i;
 
-	/* length of the string */
-	for (i = 0; *(s + i) != '\0'; i++)
+	i = _strlen_recursion(s);
+
+	if (i <= 1)
+		return (1);
+
+	return (check_palindrome(s, i - 1, 0));
+}
+
+/**
+ * _strlen_recursion- return the lenght of a string
+ * @s: the string to measure
+ *
+ * Return: lenght of string
+ */
+
+int _strlen_recursion(char *s)
+{
+	if (*s == '\0')
 	{
-		len++;
+		return (0);
 	}
-
-	/* exclud \0 */
-	len = len - 1;
-
-	/* compare caracters */
-	for (j = 0; j < len; j++)
+	else
 	{
-		a = *(s + j);
-		b = *(s + len);
-		if (a == b)
-		{
-			len = len - 1;
-		}
-		else
-		{
-			return (0);
-		}
+		return (1 + _strlen_recursion(s + 1));
 	}
-	return (1);
+}
+
+/**
+ * check_palindrome- check if the string is a palindrome or not
+ * @s: the string to test
+ * @end: last value of the string
+ * @i: first index of the string
+ *
+ * Return: 1 if is palindrome, 0 if not
+ */
+
+int check_palindrome(char *s, int end, int i)
+{
+	if (*(s + end) == *(s + i) && (i == end - 1 || i == end))
+		return (1);
+	if (*(s + end) != *(s + i))
+		return (0);
+	return (check_palindrome(s, end - 1, i + 1));
 }

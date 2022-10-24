@@ -13,10 +13,6 @@
 int **alloc_grid(int width, int height)
 {
 	int **ar2d, i;
-	unsigned int w, h;
-
-	w = (unsigned int)width - 1;
-	h = (unsigned int)height - 1;
 
 	if (width <= 0 || height <= 0)
 	{
@@ -24,17 +20,20 @@ int **alloc_grid(int width, int height)
 	}
 
 	/* firt array of pointer */
-	ar2d = (int **) malloc(w * sizeof(int *));
+	ar2d = (int **) malloc(height * sizeof(int *));
+
+	if (ar2d == NULL)
+		return (NULL);
 
 	/* array of array */
 	for (i = 0; i < height; i++)
 	{
-		ar2d[i] = (int *) malloc(h * sizeof(int));
+		ar2d[i] = (int *) malloc(width * sizeof(int));
 	}
+
 	if (ar2d == NULL)
 	{
 		return (NULL);
 	}
 	return (ar2d);
-	free (ar2d);
 }

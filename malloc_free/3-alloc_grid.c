@@ -19,8 +19,10 @@ int **alloc_grid(int width, int height)
 		return (NULL);
 	}
 
+	/* firt array of pointer */
 	ar2d = (int **) malloc(width * sizeof(int *));
 
+	/* array of array */
 	for (i = 0; i < height; i++)
 	{
 		ar2d[i] = (int *) malloc(height * sizeof(int));
@@ -30,4 +32,5 @@ int **alloc_grid(int width, int height)
 		return (NULL);
 	}
 	return (ar2d);
+	free (ar2d);
 }

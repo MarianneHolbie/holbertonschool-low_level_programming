@@ -7,7 +7,8 @@ char *create_array(unsigned int size, char c);
 char *_strdup(char *str);
 /* function that concatenates two strings */
 char *str_concat(char *s1, char *s2);
-
+/* function return length of a string */
+int _strlen(char *s);
 
 
 #endif

@@ -2,35 +2,42 @@
 #include <stdlib.h>
 
 /**
+ * _strlen- return the length of a string
+ * @s: pointer to put the value of the string
+ *
+ * Return: the length
+ */
+
+int _strlen(char *s)
+{
+	int number = 0;
+
+	while (*(s + number) != '\0')
+	number++;
+
+	return (number);
+}
+
+/**
  * str_concat- function concatenates two string in new allocate with malloc
  * @s1: first string
  * @s2: second string
  * Return: NULL on failure or new string
  */
 
-
-
 char *str_concat(char *s1, char *s2)
 {
-	unsigned int i, j, len1 = 0, len2 = 0;
+	unsigned int i, len1 = 0, len2 = 0;
 	char *ar;
 
 	/* if chain is NULL treat as an empty string */
 	if (s1 == NULL)
-		*s1 = '\0';
+		s1 = '\0';
 	if (s2 == NULL)
-		*s2 = '\0';
+		s2 = '\0';
 
-	/* calculate length of 2 string : len1 and len2 */
-	for (j = 0; *(s1 + j) != '\0'; j++)
-	{
-		len1++;
-	}
-
-	for (j = 0; *(s2 + j) != '\0'; j++)
-	{
-		len2++;
-	}
+	len1 = _strlen(s1);
+	len2 = _strlen(s2);
 
 	ar = malloc((len1 + len2 + 1) * sizeof(char));
 

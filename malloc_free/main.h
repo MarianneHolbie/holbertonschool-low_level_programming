@@ -9,6 +9,7 @@ char *_strdup(char *str);
 char *str_concat(char *s1, char *s2);
 /* function return length of a string */
 int _strlen(char *s);
-
+/* function that returns a pointe to a 2 dimensional array of integers */
+int **alloc_grid(int width, int height);
 
 #endif

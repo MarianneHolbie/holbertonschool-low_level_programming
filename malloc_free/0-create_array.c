@@ -19,11 +19,14 @@ char *create_array(unsigned int size, char c)
 
 	if (size == 0 || ar == NULL)
 		return (NULL);
-	else
+
+	if (size != 0)
+	{
 		while (i < size)
 		{
 			ar[i] = c;
 			i++;
 		}
+	}
 	return (ar);
 }

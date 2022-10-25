@@ -13,21 +13,26 @@
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	int *p_ar;
+	int *pAr;
 	unsigned int i;
 
 	if (nmemb == 0 || size == 0)
+	{
 		return (NULL);
+	}
 
-	p_ar = malloc(nmemb * size);
+	pAr = malloc(nmemb * size);
 
-	if (p_ar == NULL)
+	if (pAr == NULL)
+	{
 		return (NULL);
+		free(pAr);
+	}
 
 	for (i = 0; i < size; i++)
 	{
-		p_ar[i] = 0;
+		pAr[i] = 0;
 	}
-	return (p_ar);
+	return (pAr);
 
 }

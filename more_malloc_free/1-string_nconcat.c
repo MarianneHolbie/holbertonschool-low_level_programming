@@ -25,18 +25,21 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (s2 == 0)
 		len2 = 0;
 	else
-		len2 = strlen(s2);
+		len2 = strlen(s2) - 1;
 
 	p = malloc((len1 + n) * sizeof(char));
 	if (p == NULL)
+	{
+		free(p);
 		return (NULL);
+	}
 
 	for (i = 0; i < len1; i++)
 		p[i] = s1[i];
 
 	if (n >= len2)
 	{
-		for (i = 0; i < len2; i++)
+		for (i = 0; i < len2 - 1; i++)
 		{
 			p[i] = s2[i];
 			len1++;

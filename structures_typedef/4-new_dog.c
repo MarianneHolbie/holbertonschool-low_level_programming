@@ -14,6 +14,7 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *ptr_dog;
+	int ln_name, ln_owner;
 
 	/* create ptr_dog of type dog_t struct */
 	ptr_dog = malloc(sizeof(dog_t));
@@ -26,15 +27,25 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (name == NULL || owner == NULL)
 		return (NULL);
 
-	if (ptr_dog)
-	{
-		strcpy(ptr_dog->name, name);
-		ptr_dog->age = age;
-		strcpy(ptr_dog->owner, owner);
-	}
+	ln_name = strlen(name) + 1; /*lenght of name */
+	ln_owner = strlen(name) + 1; /* lenght of owner */
 
-	/*ptr_dog->name = name; */
-	/*ptr_dog->age = age;*/
-	/*ptr_dog->owner = owner;*/
+	ptr_dog->name = malloc(ln_name); /* create space to stock copy name */
+	strcpy(ptr_dog->name, name); /* copy string */
+
+	if (ptr_dog->name == NULL)
+	{
+		free(ptr_dog);
+		return (NULL);
+	}
+	ptr_dog->age = age;
+	ptr_dog->owner = malloc(ln_owner); /* create space to stock copy owner */
+	strcpy(ptr_dog->owner, owner); /* copy string */
+	if (ptr_dog->owner == NULL)
+	{
+		free(ptr_dog->name);
+		free(ptr_dog);
+		return (NULL);
+	}
 	return (ptr_dog);
 }

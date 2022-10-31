@@ -30,22 +30,20 @@ dog_t *new_dog(char *name, float age, char *owner)
 	ln_name = strlen(name) + 1; /*lenght of name */
 	ln_owner = strlen(name) + 1; /* lenght of owner */
 
-	ptr_dog->name = malloc(ln_name); /* create space to stock copy name */
-	strcpy(ptr_dog->name, name); /* copy string */
-
-	if (ptr_dog->name == NULL)
-	{
-		free(ptr_dog);
-		return (NULL);
-	}
+	ptr_dog->name = malloc(sizeof(char) * ln_name); /* create space to stock copy name */
 	ptr_dog->age = age;
-	ptr_dog->owner = malloc(ln_owner); /* create space to stock copy owner */
-	strcpy(ptr_dog->owner, owner); /* copy string */
-	if (ptr_dog->owner == NULL)
+	ptr_dog->owner = malloc(sizeof(char) * ln_owner); /* create space to stock copy owner */
+
+	if (ptr_dog->name != NULL || ptr_dog->owner)
 	{
+		free(ptr_dog->owner);
 		free(ptr_dog->name);
 		free(ptr_dog);
 		return (NULL);
 	}
+
+	ptr_dog->name = strcpy(ptr_dog->name, name); /* copy string name */
+	ptr_dog->owner = strcpy(ptr_dog->owner, owner); /* copy string owner*/
+
 	return (ptr_dog);
 }

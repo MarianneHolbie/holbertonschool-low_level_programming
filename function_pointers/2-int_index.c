@@ -18,13 +18,15 @@ int int_index(int *array, int size, int (*cmp)(int))
 	if (size <= 0)
 		return (-1);
 
-	/* read each element of the array */
-	for (i = 0; i < size; i++)
+	if (array != NULL && cmp != NULL)
 	{
-		/* apply function */
-		if (cmp(array[i]))
-			return (i);
+		/* read each element of the array */
+		for (i = 0; i < size; i++)
+		{
+			/* apply function */
+			if (cmp(array[i]))
+				return (i);
+		}
 	}
-
 	return (-1);
 }

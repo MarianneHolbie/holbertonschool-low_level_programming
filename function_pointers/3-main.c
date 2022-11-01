@@ -34,13 +34,7 @@ int main(int argc, char *argv[])
 	else
 	{
 		result = (get_op_func(operator))(num1, num2);
-		if (result)
-		{
-			printf("Error\n");
-			return (99);
-		}
-		else
-			printf("%d\n", result);
+		printf("%d\n", result);
 	}
 	return (0);
 }

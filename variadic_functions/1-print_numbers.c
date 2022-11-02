@@ -19,7 +19,10 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	va_list pnb;
 
 	if (n == 0)
+	{
 		printf("\n");
+		exit(0);
+	}
 
 	va_start(pnb, n);
 

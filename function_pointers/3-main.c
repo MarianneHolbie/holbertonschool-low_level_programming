@@ -31,10 +31,14 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		return (100);
 	}
-	else
+
+	if (get_op_func(argv[2]) == NULL)
 	{
-		result = (get_op_func(operator))(num1, num2);
-		printf("%d\n", result);
+		printf("Error\n");
+		return (99);
 	}
+	result = (get_op_func(operator))(num1, num2);
+	printf("%d\n", result);
+
 	return (0);
 }

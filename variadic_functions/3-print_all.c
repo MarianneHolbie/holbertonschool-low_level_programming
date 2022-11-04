@@ -72,7 +72,7 @@ void print_all(const char * const format, ...)
 
 	while (format[j] != 0)
 	{
-		for (i = 0; i < 4; i++)
+		while (i < 4)
 		{
 			if (format[j] == *tall[i].t_arg)
 			{
@@ -80,6 +80,7 @@ void print_all(const char * const format, ...)
 				if (format[j + 1] != '\0')
 					printf(", ");
 			}
+			i++;
 		}
 		i = 0;
 		j++;

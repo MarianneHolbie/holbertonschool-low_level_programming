@@ -1,6 +1,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include "variadic_functions.h"
+#include <stddef.h>
 
 /**
  * pr_c- function that print char
@@ -73,7 +74,7 @@ void print_all(const char * const format, ...)
 
 	va_start(to_pr, format);
 
-	while (format[j] != 0 && format != NULL)
+	while (format != NULL && format[j])
 	{
 		while (i < 4)
 		{

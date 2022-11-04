@@ -56,7 +56,7 @@ void pr_s(va_list tall)
 
 void print_all(const char * const format, ...)
 {
-	int i = 0;
+	int i = 0, j = 0;
 
 	/* new entry of struct pr */
 	pr_arg tall[] = {
@@ -72,15 +72,20 @@ void print_all(const char * const format, ...)
 
 	va_start(to_pr, format);
 
-	while (*format != 0)
+	while (format[j] != 0)
 	{
-		while (i < 5)
+		while (i < 4)
 		{
-			if (*format == *tall[i].t_arg)
+			if (format[j] == *tall[i].t_arg)
+			{
 				tall[i].f(to_pr);
+				if (format[j + 1] != '\0')
+					printf(", ");
+			}
 			i++;
 		}
 		i = 0;
+		j++;
 	}
 
 	va_end(to_pr);

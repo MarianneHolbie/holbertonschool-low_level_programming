@@ -42,6 +42,8 @@ void pr_s(va_list tall)
 	char *txt;
 
 	txt = va_arg(tall, char *);
+	if (txt == NULL)
+		txt = "(nil)";
 
 	printf("%s", txt);
 }
@@ -55,6 +57,7 @@ void pr_s(va_list tall)
 void print_all(const char * const format, ...)
 {
 	int i = 0, j = 0;
+	char *sep = "";
 
 	/* new entry of struct pr */
 	pr_arg tall[] = {
@@ -76,9 +79,9 @@ void print_all(const char * const format, ...)
 		{
 			if (format[j] == *tall[i].t_arg)
 			{
+				printf("%s", sep);
 				tall[i].f(to_pr);
-				if (format[j + 1] != '\0')
-					printf(", ");
+				sep = ", ";
 			}
 			i++;
 		}

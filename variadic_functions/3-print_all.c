@@ -43,7 +43,7 @@ void pr_s(va_list tall)
 
 	txt = va_arg(tall, char *);
 
-	if (txt == NULL)
+	while (txt == NULL)
 		txt = "(nil)";
 	printf("%s", txt);
 }
@@ -74,7 +74,7 @@ void print_all(const char * const format, ...)
 
 	while (format[j] != 0)
 	{
-		while (i < 4)
+		for (i = 0; i < 4; i++)
 		{
 			if (format[j] == *tall[i].t_arg)
 			{
@@ -82,7 +82,6 @@ void print_all(const char * const format, ...)
 				if (format[j + 1] != '\0')
 					printf(", ");
 			}
-			i++;
 		}
 		i = 0;
 		j++;

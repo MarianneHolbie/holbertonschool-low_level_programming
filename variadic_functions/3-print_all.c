@@ -43,8 +43,8 @@ void pr_s(va_list tall)
 
 	txt = va_arg(tall, char *);
 
-	while (txt == NULL)
-		txt = "(nil)";
+  /*while (txt == NULL)*/
+	/*	txt = "(nil)";*/
 	printf("%s", txt);
 }
 

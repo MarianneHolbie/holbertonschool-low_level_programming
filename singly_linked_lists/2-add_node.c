@@ -25,7 +25,7 @@ list_t *add_node(list_t **head, const char *str)
 		return (NULL);
 
 	copy = strdup(str); /* copy the string */
-	
+
 	/* put new data */
 	new_node->str = copy;
 	new_node->len = strlen(copy); /* length of string */

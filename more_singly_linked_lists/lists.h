@@ -49,5 +49,6 @@ list_t *add_node_end(list_t **head, const char *str);
 void free_list(list_t *head);
 /* prints all the elements of a listint_t */
 size_t print_listint(const listint_t *h);
-
+/* prints number of elements in a linked list */
+size_t listint_len(const listint_t *h);
 #endif

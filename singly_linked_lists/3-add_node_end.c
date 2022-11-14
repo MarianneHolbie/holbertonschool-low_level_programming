@@ -21,7 +21,7 @@ list_t *add_node_end(list_t **head, const char *str)
 	last_node = *head; /* used after to found last element */
 
 	/* test malloc */
-	if (new_end_node == NULL || last_node == NULL || copy == NULL)
+	if (new_end_node == NULL || copy == NULL)
 	{
 		free(new_end_node);
 		return (NULL);

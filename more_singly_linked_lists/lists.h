@@ -51,4 +51,8 @@ void free_list(list_t *head);
 size_t print_listint(const listint_t *h);
 /* prints number of elements in a linked list */
 size_t listint_len(const listint_t *h);
+/* add a new node at the beginning of a linked list */
+listint_t *add_nodeint(listint_t **head, const int n);
+
+
 #endif

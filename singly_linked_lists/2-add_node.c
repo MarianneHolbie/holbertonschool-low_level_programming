@@ -17,10 +17,10 @@ list_t *add_node(list_t **head, const char *str)
 	char *copy; /* copy of string */
 	list_t *new_node; /* new element */
 
-	copy = strdup(str); /* copy the string */
-
 	/* allocate node */
 	new_node = malloc(sizeof(list_t));
+
+	copy = strdup(str); /* copy the string */
 
 	/* test malloc */
 	if (new_node == NULL)

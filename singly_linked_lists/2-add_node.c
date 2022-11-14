@@ -20,12 +20,12 @@ list_t *add_node(list_t **head, const char *str)
 	/* allocate node */
 	new_node = malloc(sizeof(list_t));
 
-	copy = strdup(str); /* copy the string */
-
 	/* test malloc */
 	if (new_node == NULL)
 		return (NULL);
 
+	copy = strdup(str); /* copy the string */
+	
 	/* put new data */
 	new_node->str = copy;
 	new_node->len = strlen(copy); /* length of string */

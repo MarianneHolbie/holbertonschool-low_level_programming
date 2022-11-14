@@ -23,8 +23,8 @@ list_t *add_node(list_t **head, const char *str)
 	/* test malloc */
 	if (new_node == NULL)
 	{
-		free(new_node);
 		return (NULL);
+		free(new_node);
 	}
 
 	copy = strdup(str); /* copy the string */

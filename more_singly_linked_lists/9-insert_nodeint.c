@@ -24,7 +24,10 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	new_node->n = n; /* put n data in new node */
 
 	if (*head == NULL) /* if empty list */
-		return (NULL);
+	{
+		(*head) = new_node;
+		return (new_node);
+	}
 
 	if (idx == 0) /* add at the beginning */
 	{

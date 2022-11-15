@@ -26,6 +26,13 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	if (*head == NULL) /* if empty list */
 		return (NULL);
 
+	if (idx == 0) /* add at the beginning */
+	{
+		new_node->next = copy_head->next; /* next new_node is head */
+		*head = new_node; /* new_node became head */
+		return (new_node);
+	}
+
 	for (i = 0; i < idx - 1; i++) /* go to idx - 1 node */
 	{
 		if (copy_head != NULL) /* if it not the last node */

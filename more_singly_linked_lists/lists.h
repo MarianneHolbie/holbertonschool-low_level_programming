@@ -58,6 +58,8 @@ listint_t *add_nodeint_end(listint_t **head, const int n);
 /* frees listint_t */
 void free_listint(listint_t *head);
 /* frees a listint_t and set head NULL */
-void free_listint2(listint_t **head); 
+void free_listint2(listint_t **head);
+/* deletes head node, return head node's data n */
+int pop_listint(listint_t **head);
 
 #endif

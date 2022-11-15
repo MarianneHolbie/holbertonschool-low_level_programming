@@ -16,6 +16,9 @@ unsigned int binary_to_uint(const char *b)
 	i = 0; /* count */
 	puiss_two = 1; /* 2^0 = 1 */
 
+	if (b == NULL)
+		return (0);
+
 	/* count number of 0 and 1 in string b */
 	while (b[i] != '\0')
 	{
@@ -28,6 +31,8 @@ unsigned int binary_to_uint(const char *b)
 	{
 		if (b[i] == '1')
 			sum = sum + puiss_two;
+		if (b[i] != '1' && b[i] != '0')
+			return (0);
 		puiss_two = puiss_two * 2; /* up puissance of 2 */
 		i--;
 	}

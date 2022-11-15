@@ -13,7 +13,7 @@ int pop_listint(listint_t **head)
 	listint_t *temp;
 	int data; /* for stock value of n before suppress node */
 
-	if (head == NULL) /* case empty linked list */
+	if (*head == NULL) /* case empty linked list */
 		return (0);
 
 	temp = (*head); /* stock first node */

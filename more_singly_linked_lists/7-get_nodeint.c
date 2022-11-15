@@ -17,7 +17,10 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 
 	for (count = 0; count < index; count++) /* run linked list trought nth */
 	{
-		head = head->next; /* next element */
+		if (head != NULL)
+			head = head->next; /* next element */
+		else
+			return (NULL);
 	}
 	return (head); /* element found */
 }

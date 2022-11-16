@@ -19,11 +19,11 @@ int set_bit(unsigned long int *n, unsigned int index)
 	if (index > (sizeof(unsigned long int) * 8))
 		return (-1);
 
-	/* create mask with only 1 at index position, get the oposite */
-	mask = ~(1 << index);
+	/* create mask with only 1 at index position */
+	mask = (1 << index);
 
-	/* ET logical : while 1 result is 2 are 1 */
-	num = num & mask;
+	/* OR logical : if 1/2 is 1 -> 1 */
+	num = num | mask;
 
 	/* change value of n */
 	*n = num;

@@ -12,8 +12,8 @@ int get_bit(unsigned long int n, unsigned int index)
 {
 	unsigned long int bit_index;
 
-	/* if index is out of number test */
-	if (index > n)
+	/* if index is out of number test in binary */
+	if (index > (sizeof(unsigned long int) * 8))
 		return (-1);
 
 	/* right shift n, index times */

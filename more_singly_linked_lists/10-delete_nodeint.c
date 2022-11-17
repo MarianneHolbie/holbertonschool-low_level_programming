@@ -23,7 +23,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		if ((*head)->next != NULL)
 		{
 			(*head) = (*head)->next; /* head become the second */
-			free(copy_head); /* free copy */
+			free(copy_head);
 			return (1);
 		}
 		else
@@ -38,11 +38,14 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		/* go to rigth place */
 	{
 		temp = copy_head; /* stok */
-		copy_head = copy_head->next; /* go next */
-		count++; /* count */
+		if (copy_head->next)
+		{
+			copy_head = copy_head->next; /* go next */
+			count++; /* count */
+		}
+		else
+			return (-1);
 	}
-	if (count != index)
-		return (-1);
 
 	temp->next = copy_head->next; /* stock adress */
 	free(copy_head);

@@ -10,44 +10,32 @@
 
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
-	listint_t *copy_head; /* copy head */
-	listint_t *delete_node; /* stock delete node */
-	unsigned int count;
+	listint_t *copy_head, *temp; /* copy head, stok delete node*/
+	unsigned int count = 0; /* to move */
 
-	copy_head = (*head);
-	delete_node = malloc(sizeof(listint_t)); /* allocate space */
-	if (delete_node == NULL || copy_head == NULL)
-	{
-		free(copy_head);
-		free(delete_node);
-		return (-1);
-	}
+	copy_head = (*head); /* stock head */
 
-	if (head == NULL && index == 0) /* special case no list */
+	if (copy_head == NULL) /* linked list empty */
 		return (-1);
 
 	if (index == 0) /* special case delete beginning */
 	{
 		(*head) = (*head)->next; /* head become the second */
 		free(copy_head); /* free copy */
-		free(delete_node);
 		return (1);
 	}
-	for (count = 0; count < (index - 1); count++)
-		/* only index-1 because ->next is delete node */
+
+	while (head && count < index)
+		/* go to rigth place */
 	{
-		if (copy_head != NULL)
-			copy_head = copy_head->next;
-		else
-		{
-			free(copy_head);
-			free(delete_node);
-			return (-1); /* if out list */
-		}
+		temp = copy_head; /* stok */
+		copy_head = copy_head->next; /* go next */
+		count++; /* count */
 	}
-	delete_node = copy_head->next; /* stock adress */
-	copy_head->next = delete_node->next; /* affect address */
-	free(delete_node);
+	if (count < index)
+		return (-1);
+
+	temp->next = copy_head->next; /* stock adress */
 	free(copy_head);
 	return (1);
 }

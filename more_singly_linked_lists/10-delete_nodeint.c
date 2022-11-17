@@ -32,7 +32,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		copy_head = copy_head->next; /* go next */
 		count++; /* count */
 	}
-	if (count < index)
+	if (count != index)
 		return (-1);
 
 	temp->next = copy_head->next; /* stock adress */

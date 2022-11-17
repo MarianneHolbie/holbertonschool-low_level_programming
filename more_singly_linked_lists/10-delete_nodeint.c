@@ -20,9 +20,18 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 
 	if (index == 0) /* special case delete beginning */
 	{
-		(*head) = (*head)->next; /* head become the second */
-		free(copy_head); /* free copy */
-		return (1);
+		if ((*head)->next != NULL)
+		{
+			(*head) = (*head)->next; /* head become the second */
+			free(copy_head); /* free copy */
+			return (1);
+		}
+		else
+		{
+			free(*head);
+			*head = NULL;
+			return (1);
+		}
 	}
 
 	while (head && count < index)

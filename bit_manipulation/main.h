@@ -15,18 +15,7 @@ int get_bit(unsigned long int n, unsigned int index);
 int set_bit(unsigned long int *n, unsigned int index);
 /* sets the value of a bit to 0 at a given index */
 int clear_bit(unsigned long int *n, unsigned int index);
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* returns number of bit change to flip n1 to n2 */
+unsigned int flip_bits(unsigned long int n, unsigned long int m);
 
 #endif

@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-/* function that reads a text file and prints it to the POSIX standard output */
+/*reads a text file and prints it to the POSIX standard output */
 ssize_t read_textfile(const char *filename, size_t letters);
 
 

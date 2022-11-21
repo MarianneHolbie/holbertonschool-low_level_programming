@@ -12,6 +12,8 @@ int append_text_to_file(const char *filename, char *text_content)
 {
 	int fildes, count;
 
+	count = 0;
+
 	if (filename == NULL)
 		return (-1);
 
@@ -27,6 +29,7 @@ int append_text_to_file(const char *filename, char *text_content)
 	while (text_content[count] != '\0')
 		count++;
 
+	/* write all caracter of text_content in file pointed by fildes */
 	write(fildes, text_content, count);
 
 	close(fildes);

@@ -13,7 +13,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	int fildes, l_read, l_write;
 	char *temp; /* buffer to stock letters */
 
-	if (filename == NULL)
+	if (filename == NULL || letters == 0)
 		return (0);
 
 	/* fildes : file descriptor */

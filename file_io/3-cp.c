@@ -38,12 +38,12 @@ int main(int argc, char *argv[])
 		}
 	}
 	cl_source = close(source);
-	cl_dest = close(destination);
+	/*cl_dest = close(destination); */
 	if (cl_source < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", source);
+	{	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", source);
 		exit(100);
 	}
+	cl_dest = close(destination);
 	if (cl_dest < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", destination);

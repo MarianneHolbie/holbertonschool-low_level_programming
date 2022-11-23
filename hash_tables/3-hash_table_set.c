@@ -32,12 +32,13 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	/* statement place at index is empty */
 	if (ht->array[index] == NULL)
 		ht->array[index] = new_item;
+	/*
 	else
 	{
 		new_item->next = ht->array[index];
 		new_item = ht->array[index];
 	}
-	free(new_item);
+	free(new_item);*/
 
 	return (1);
 }

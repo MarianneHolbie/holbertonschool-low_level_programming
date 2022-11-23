@@ -22,9 +22,13 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	new_item->value = malloc(strlen(value) + 1);
 	new_item->next = NULL;
 
+	if (new_item == NULL || ht == NULL)
+		return (0);
+
 	/* copy key and value) */
 	strcpy(new_item->key, key);
 	strcpy(new_item->value, value);
+
 
 	/* calcul of index value with djb2 algo */
 	index = hash_djb2(pkey) % ht->size;
@@ -32,13 +36,13 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	/* statement place at index is empty */
 	if (ht->array[index] == NULL)
 		ht->array[index] = new_item;
-	/*
+
 	else
 	{
 		new_item->next = ht->array[index];
-		new_item = ht->array[index];
+		ht->array[index] = new_item;
 	}
-	free(new_item);*/
+	free(new_item);
 
 	return (1);
 }

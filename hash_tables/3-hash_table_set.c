@@ -23,12 +23,13 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	new_item->next = NULL;
 
 	if (new_item == NULL || ht == NULL)
+	{
+		free(new_item);
 		return (0);
+	}
 
-	/* copy key and value) */
-	strcpy(new_item->key, key);
+	/* copy value */
 	strcpy(new_item->value, value);
-
 
 	/* calcul of index value with djb2 algo */
 	index = hash_djb2(pkey) % ht->size;
@@ -40,7 +41,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	else /* update value or new head linked list */
 	{
 		if (ht->array[index]->key == new_item->key)
+		{
+			free(ht->array[index]->value);
 			ht->array[index]->value = new_item->value;
+		}
 		else
 		{
 			new_item->next = ht->array[index];

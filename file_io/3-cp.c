@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 			exit(98);
 		}
 		out = write(destination, buffer, in);
-		if (out != in)
+		if (out == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);

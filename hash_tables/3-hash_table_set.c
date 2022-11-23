@@ -11,8 +11,8 @@
 
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	int c;
-	unsigned long int i, sum = 0, index = 0;
+	unsigned long int index = 0;
+	/* convert *key in unsigned to use with djb2 */
 	const unsigned char *pkey = (const unsigned char *)(key);
 	/* create new item value */
 	hash_node_t *new_item;
@@ -26,16 +26,18 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	strcpy(new_item->key, key);
 	strcpy(new_item->value, value);
 
-	/* convert key to ascii */
-	for (i = 0; i < strlen(key); i++)
-	{
-		c = key[i];
-		sum = sum + c;
-	}
+	/* calcul of index value with djb2 algo */
 	index = hash_djb2(pkey) % ht->size;
 
+	/* statement place at index is empty */
 	if (ht->array[index] == NULL)
 		ht->array[index] = new_item;
+	else
+	{
+		new_item->next = ht->array[index];
+		new_item = ht->array[index];
+	}
+	free(new_item);
 
 	return (1);
 }

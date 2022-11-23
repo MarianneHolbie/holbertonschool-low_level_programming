@@ -10,7 +10,7 @@
 
 int main(int argc, char *argv[])
 {
-	int source, destination, in = 0, out = 1, cl_source, cl_dest;
+	int source, destination, in = 0, out = 1;
 	char buffer[1024];
 
 	if (argc != 3) /* number arg not correct */
@@ -37,13 +37,13 @@ int main(int argc, char *argv[])
 			exit(99);
 		}
 	}
-	cl_source = close(source);
-	cl_dest = close(destination);
-	if (cl_source < 0)
+	/*cl_source = close(source);*/
+	/*cl_dest = close(destination);*/
+	if (close(source) ==  -1)
 	{	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", source);
 		exit(100);
 	}
-	if (cl_dest < 0)
+	if (close(destination) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", destination);
 		exit(100);

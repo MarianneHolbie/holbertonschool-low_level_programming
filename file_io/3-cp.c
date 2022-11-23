@@ -10,7 +10,7 @@
 
 int main(int argc, char *argv[])
 {
-	int source, destination, in = 0, out = 1;
+	int source, destination, in = 1, out = 0;
 	char buffer[1024];
 
 	if (argc != 3) /* number arg not correct */
@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 	destination = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	while (out > 0)
+	while (in > 0)
 	{	in = read(source, buffer, 1024);
 		if (in < 0)
 		{

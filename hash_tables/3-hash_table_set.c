@@ -29,6 +29,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	/* copy value */
 	strcpy(new_item->value, value);
+	strcpy(new_item->key, key);
 
 	/* calcul of index value with djb2 algo */
 	index = hash_djb2(pkey) % ht->size;

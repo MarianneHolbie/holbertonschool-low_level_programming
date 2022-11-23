@@ -41,18 +41,13 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	else /* update value or new head linked list */
 	{
 		if (ht->array[index]->key == new_item->key)
-		{
-			free(ht->array[index]->value);
 			ht->array[index]->value = new_item->value;
-		}
 		else
 		{
 			new_item->next = ht->array[index];
 			ht->array[index] = new_item;
 		}
 	}
-	/*free(new_item);*/
-
 	return (1);
 }
 

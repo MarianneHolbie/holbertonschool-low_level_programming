@@ -42,7 +42,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		new_item->next = ht->array[index];
 		ht->array[index] = new_item;
 	}
-	free(new_item);
+	/*free(new_item);*/
 
 	return (1);
 }

@@ -13,6 +13,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	int c;
 	unsigned long int i, sum = 0, index = 0;
+	const unsigned char *pkey = (const unsigned char *)(key);
 	/* create new item value */
 	hash_node_t *new_item;
 
@@ -31,7 +32,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		c = key[i];
 		sum = sum + c;
 	}
-	index = sum % ht->size;
+	index = hash_djb2(pkey) % ht->size;
 
 	if (ht->array[index] == NULL)
 		ht->array[index] = new_item;

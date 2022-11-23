@@ -37,10 +37,15 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (ht->array[index] == NULL)
 		ht->array[index] = new_item;
 
-	else
+	else /* update value or new head linked list */
 	{
-		new_item->next = ht->array[index];
-		ht->array[index] = new_item;
+		if (ht->array[index]->key == new_item->key)
+			ht->array[index]->value = new_item->value;
+		else
+		{
+			new_item->next = ht->array[index];
+			ht->array[index] = new_item;
+		}
 	}
 	/*free(new_item);*/
 

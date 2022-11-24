@@ -1,6 +1,7 @@
 #ifndef HASH_TABLES_H
 #define HASH_TABLES_H
 
+#include <stddef.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -42,5 +43,7 @@ unsigned long int hash_djb2(const unsigned char *str);
 unsigned long int key_index(const unsigned char *key, unsigned long int size);
 /* add an element to the hash table */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value);
+/* retrieves a value associated with a key */
+char *hash_table_get(const hash_table_t *ht, const char *key);
 
 #endif

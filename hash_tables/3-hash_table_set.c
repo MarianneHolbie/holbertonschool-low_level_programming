@@ -40,7 +40,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	{
 		if (strcmp(ht->array[index]->key, new_item->key) == 0)
 		{
-			free(ht->array[index]->key);
 			ht->array[index]->value = new_item->value;
 			return (1);
 		}

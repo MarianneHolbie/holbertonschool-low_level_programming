@@ -18,8 +18,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *new_item;
 
 	new_item = malloc(sizeof(hash_node_t));
-	new_item->key = strdup(key); /*malloc(strlen(key) + 1);*/
-	new_item->value = strdup(value); /*malloc(strlen(value) + 1);*/
+	new_item->key = strdup(key);
+	new_item->value = strdup(value);
 	new_item->next = NULL;
 
 	if (new_item == NULL || ht == NULL)
@@ -27,10 +27,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		free(new_item);
 		return (0);
 	}
-
-	/* copy value */
-	/*strcpy(new_item->value, value);*/
-	/*strcpy(new_item->key, key);*/
 
 	/* calcul of index value with djb2 algo */
 	index = hash_djb2(pkey) % ht->size;
@@ -51,6 +47,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			ht->array[index] = new_item;
 		}
 	}
+	free(new_item);
 	return (1);
 }
 

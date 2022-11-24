@@ -12,20 +12,22 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index = 0;
+	char *dkey, *dvalue;
 	/* convert *key in unsigned to use with djb2 */
 	const unsigned char *pkey = (const unsigned char *)(key);
 	/* create new item value */
 	hash_node_t *new_item;
 
 	new_item = malloc(sizeof(hash_node_t));
-	new_item->key = strdup(key);
-	if (new_item->key == NULL)
+	dkey = strdup(key);
+	if (dkey == NULL)
 		return (0);
-	new_item->value = strdup(value);
-	if (new_item->value == NULL)
+	new_item->key = dkey;
+	dvalue = strdup(value);
+	if (dvalue == NULL)
 		return (0);
+	new_item->value = dvalue;
 	new_item->next = NULL;
-
 	if (new_item == NULL || ht == NULL)
 	{
 		free(new_item);
@@ -44,11 +46,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			return (1);
 		}
 		else
-		{
-			new_item->next = ht->array[index];
+		{	new_item->next = ht->array[index];
 			ht->array[index] = new_item;
 		}
 	}
 	return (1);
 }
-

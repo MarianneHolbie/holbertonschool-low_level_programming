@@ -18,12 +18,18 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	/* generate index value corresponding to key */
 	index = key_index((const unsigned char *)key, ht->size);
 
+	/* stokke node a the index place */
 	item = ht->array[index];
 
-	if (item != NULL)
+	/* if linked list at the index place */
+	while (item)
 	{
-		if (strcmp(item->key, key) == 0)
-			return (item->value);
+		if (item != NULL)
+		{
+			if (strcmp(item->key, key) == 0)
+				return (item->value);
+		}
+		item = item->next;
 	}
 	return (NULL);
 }

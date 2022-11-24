@@ -33,7 +33,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	}
 	/* calcul of index value with djb2 algo */
 	index = hash_djb2(pkey) % ht->size;
-
 	/* statement place at index is empty */
 	if (ht->array[index] == NULL)
 		ht->array[index] = new_item;
@@ -41,6 +40,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	{
 		if (strcmp(ht->array[index]->key, new_item->key) == 0)
 		{
+			free(ht->array[index]->key);
 			ht->array[index]->value = new_item->value;
 			return (1);
 		}

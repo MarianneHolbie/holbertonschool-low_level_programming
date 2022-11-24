@@ -18,14 +18,14 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 	source = open(argv[1], O_RDONLY); /* read source file */
-	if (source < 0)
+	if (source == -1)
 	{	dprintf(STDERR_FILENO, "Error: can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 	destination = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	while (in > 0)
 	{	in = read(source, buffer, 1024);
-		if (in < 0)
+		if (in == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 			exit(98);

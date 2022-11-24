@@ -19,7 +19,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	new_item = malloc(sizeof(hash_node_t));
 	new_item->key = strdup(key);
+	if (new_item->key == NULL)
+		return (0);
 	new_item->value = strdup(value);
+	if (new_item->value == NULL)
+		return (0);
 	new_item->next = NULL;
 
 	if (new_item == NULL || ht == NULL)
@@ -27,7 +31,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		free(new_item);
 		return (0);
 	}
-
 	/* calcul of index value with djb2 algo */
 	index = hash_djb2(pkey) % ht->size;
 

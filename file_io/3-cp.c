@@ -40,10 +40,10 @@ int main(int argc, char *argv[])
 		}
 	}
 	if (close(source) ==  -1)
-	{	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", source);
+	{	dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", source);
 		exit(100); }
 	if (close(destination) == -1)
-	{	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", destination);
+	{	dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", destination);
 		exit(100); }
 	return (0);
 }

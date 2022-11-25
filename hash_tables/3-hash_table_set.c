@@ -1,6 +1,48 @@
 #include "hash_tables.h"
 
 /**
+ * create_hash_node- function that create a new hash node
+ * @key: key of node
+ * @value: value of node
+ *
+ * Return: adress of the new hash node
+ */
+
+hash_node_t *create_hash_node(const char *key, const char *value)
+{
+	char *dkey, *dvalue; /* for duplication */
+	hash_node_t *new_node;
+
+	/* duplicate and test */
+	dkey = strdup(key);
+	if (dkey == NULL)
+		return (NULL);
+
+	dvalue = strdup(value);
+	if (dvalue == NULL)
+	{
+		free(dkey); /* free the key associate with null value */
+		return (NULL);
+	}
+
+	/* allocate space and test */
+	new_node = malloc(sizeof(hash_node_t));
+	if (new_node == NULL)
+	{
+		free(dkey);
+		free(dvalue);
+		return (NULL);
+	}
+
+	/* put data */
+	new_node->next = NULL;
+	new_node->key = dkey;
+	new_node->value = dvalue;
+	return (new_node);
+}
+
+
+/**
  * hash_table_set- add an element to the hash table
  * @ht: pointer to hash table you want add or update
  * @key: key
@@ -15,39 +57,36 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	char *dvalue;
 	/* convert *key in unsigned to use with djb2 */
 	const unsigned char *pkey = (const unsigned char *)(key);
-	/* create new item value */
-	hash_node_t *new_item;
-
-	new_item = malloc(sizeof(hash_node_t));
-	if (new_item == NULL)
-		return (0);
-	new_item->key = strdup(key);
-	dvalue = strdup(value);
-	if (dvalue == NULL)
-		return (0);
-	new_item->value = dvalue;
-	new_item->next = NULL;
-	if (new_item == NULL || ht == NULL)
-	{
-		free(new_item);
-		return (0);
-	}
+	hash_node_t *temp;
+	
 	/* calcul of index value with djb2 algo */
 	index = hash_djb2(pkey) % ht->size;
-	/* statement place at index is empty */
-	if (ht->array[index] == NULL)
-		ht->array[index] = new_item;
-	else /* update value or new head linked list */
+
+	/* temporary variable */
+	temp = ht->array[index];
+
+	/* move in hash table */
+	while (temp)
 	{
-		if (strcmp(ht->array[index]->key, new_item->key) == 0)
+		/* compare key */
+		if (strcmp(temp->key, key) == 0)
 		{
-			ht->array[index]->value = new_item->value;
+			dvalue = strdup(value);
+			if (dvalue == NULL)
+				return (0);
+			free(temp->value);
+			temp->value = dvalue;
 			return (1);
 		}
-		else
-		{	new_item->next = ht->array[index];
-			ht->array[index] = new_item;
-		}
+		temp = temp->next;
 	}
+
+	/* if no index value in the table : create new */
+	temp = create_hash_node(key, value); /* call function */
+	if (temp == NULL)
+		return (0);
+
+	temp->next = ht->array[index];
+	ht->array[index] = temp;
 	return (1);
 }

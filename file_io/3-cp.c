@@ -10,7 +10,7 @@
 
 int main(int argc, char *argv[])
 {
-	int source, destination, in = 1, out = 0, out_read = 0;
+	int source, destination, in = 1, out = 0;
 	char buffer[1024];
 
 	if (argc != 3) /* number arg not correct */
@@ -38,11 +38,7 @@ int main(int argc, char *argv[])
 		{	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
 		}
-		out_read = read(destination, buffer, 1024);
 	}
-	if (out_read == -1)
-	{	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(98); }
 	if (close(source) ==  -1)
 	{	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", source);
 		exit(100); }

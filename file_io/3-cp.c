@@ -10,7 +10,7 @@
 
 int main(int argc, char *argv[])
 {
-	int source, destination, in = 1, out = 0;
+	int source, destination, in = 1, out = 0, out_read = 0;
 	char buffer[1024];
 
 	if (argc != 3) /* number arg not correct */
@@ -24,35 +24,31 @@ int main(int argc, char *argv[])
 	}
 	destination = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (destination == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+	{	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
 	while (in > 0)
 	{	in = read(source, buffer, 1024);
 		if (in == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		{	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 			exit(98);
 		}
 		out = write(destination, buffer, in);
 		if (out == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		{	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
 		}
+		out_read = read(destination, buffer, 1024);
 	}
-	/*cl_source = close(source);*/
-	/*cl_dest = close(destination);*/
+	if (out_read == -1)
+	{	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98); }
 	if (close(source) ==  -1)
 	{	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", source);
-		exit(100);
-	}
+		exit(100); }
 	if (close(destination) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", destination);
-		exit(100);
-	}
+	{	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", destination);
+		exit(100); }
 	return (0);
 }
 

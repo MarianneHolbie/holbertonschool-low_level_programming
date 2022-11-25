@@ -12,17 +12,16 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index = 0;
-	char *dkey, *dvalue;
+	char *dvalue;
 	/* convert *key in unsigned to use with djb2 */
 	const unsigned char *pkey = (const unsigned char *)(key);
 	/* create new item value */
 	hash_node_t *new_item;
 
 	new_item = malloc(sizeof(hash_node_t));
-	dkey = strdup(key);
-	if (dkey == NULL)
+	if (new_item == NULL)
 		return (0);
-	new_item->key = dkey;
+	new_item->key = strdup(key);
 	dvalue = strdup(value);
 	if (dvalue == NULL)
 		return (0);

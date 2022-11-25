@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 	{	dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	source = open(argv[1], O_RDONLY); /* read source file */
+	source = open(argv[1], O_RDONLY); /* read source file*/
 	if (source == -1)
 	{	dprintf(STDERR_FILENO, "Error: can't read from file %s\n", argv[1]);
 		exit(98);

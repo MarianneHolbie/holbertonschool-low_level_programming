@@ -15,9 +15,10 @@ void print_array(const int *array, size_t low, size_t high)
 	i = low;
 	while (array && i <= high)
 	{
-		if (i > 0)
-			printf(", ");
-		printf("%d", array[i]);
+		if (i != high)
+			printf("%d, ", array[i]);
+		else
+			printf("%d", array[i]);
 		++i;
 	}
 	printf("\n");
@@ -47,7 +48,7 @@ int binary_search(int *array, size_t size, int value)
 
 	while (low <= high)
 	{
-		printf("Searching in array:");
+		printf("Searching in array: ");
 		print_array(array, low, high);
 		middle = (low + high) / 2;
 

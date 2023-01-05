@@ -27,7 +27,7 @@ int binarySearch(int *array, int value, int low, int high)
 	else if (value > array[mid])
 		return (binarySearch(array, value, mid + 1, high));
 	else
-		return (binarySearch(array, value, low, high - 1));
+		return (binarySearch(array, value, low, mid));
 }
 
 

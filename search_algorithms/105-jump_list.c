@@ -34,7 +34,6 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
     if (list == NULL || !size )
         return (NULL);
 
-    print_list(list);
 
     index = 0;
     jump = sqrt(size);
